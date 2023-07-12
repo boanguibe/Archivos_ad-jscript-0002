@@ -1,5 +1,6 @@
 const archivo = require("fs");
 const path = "./files/plano.txt";
+const prompt = require('prompt-sync')();
 
 async function escribir(mensaje) {
     await archivo.appendFile(path, mensaje, (error) => {
@@ -10,8 +11,9 @@ async function escribir(mensaje) {
 
 let nombre = process.argv[2];
 let apellido = process.argv[3];
+let edad = prompt("Indique edad");
 
-archivo.appendFileSync(path, `Hola ${nombre}, tu apellido es ${apellido}\n`);
+archivo.appendFileSync(path, `Hola ${nombre}, tu apellido es ${apellido}, tu edad es ${edad}\n`);
 //archivo.appendFileSync(path, "Chao Mundo!\n");
 
 //escribir("Este texto es asincrónico\n")
